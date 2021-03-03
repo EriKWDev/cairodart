@@ -45,8 +45,8 @@ abstract class Pattern implements RefObject {
   ///
   Matrix matrix;
 
-  
-  operator==(Pattern pattern);
+
+  operator==(Object pattern) => pattern is Pattern;
 }
 
 ///
@@ -375,7 +375,7 @@ class _Pattern extends NativeFieldWrapperClass2 implements Pattern {
   CairoStatus get status native 'pattern_status';
 
   @override
-  operator==(Pattern pattern) native 'pattern_equals';
+  operator==(Object pattern) native 'pattern_equals';
 }
 
 class _SolidPattern extends _Pattern implements SolidPattern {
@@ -468,13 +468,13 @@ class _SurfacePattern extends _Pattern implements SurfacePattern {
 
 
 class _MeshPattern extends _Pattern implements MeshPattern {
-  
+
   _MeshPattern() {
     _createMesh();
   }
-  
+
   _createMesh() native 'pattern_create_mesh';
-  
+
   void beginPatch() native 'pattern_mesh_begin_patch';
   void endPatch() native 'pattern_mesh_end_patch';
   void moveTo(num x, num y) => _moveTo(x.toDouble(), y.toDouble());
@@ -486,21 +486,21 @@ class _MeshPattern extends _Pattern implements MeshPattern {
   void _moveTo(double x, double y) native 'pattern_mesh_move_to';
   void _lineTo(double x, double y) native 'pattern_mesh_line_to';
   void _curveTo(double x1, double y1, double x2, double y2, double x3, double y3) native 'pattern_mesh_curve_to';
-    
+
   Point getControlPoint(int patchNum, int pointNum) native 'pattern_mesh_get_control_point';
   void setControlPoint(int pointNum, Point p) {
     _setControlPoint(pointNum, p.x, p.y);
   }
-    
+
   void _setControlPoint(int pointNum, double x, double y) native 'pattern_mesh_set_control_point';
-  
+
   Color getCornerColor(int patchNum, int pointNum) native 'pattern_mesh_get_corner_color';
   void setCornerColor(int pointNum, Color color) {
     _setCornerColor(pointNum, color.red, color.green, color.blue, color.alpha);
   }
-  
+
   void _setCornerColor(int pointNum, double red, double green, double blue, double alpha) native 'pattern_mesh_set_corner_color';
-    
+
   int get patchCount native 'pattern_mesh_get_patch_count';
 }
 

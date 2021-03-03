@@ -53,7 +53,7 @@ abstract class FontFace implements RefObject {
   /// Gets the weight a toy font.
   ///
   FontWeight get weight;
-  
+
 }
 
 class _FontFace extends NativeFieldWrapperClass2 implements FontFace {

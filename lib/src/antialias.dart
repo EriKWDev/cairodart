@@ -50,18 +50,18 @@ abstract class Antialias {
 
   /// Hint that the backend should render at the highest quality, sacrificing speed if necessary.
   static final Antialias Best = new _Antialias(6);
-    
+
   int get value;
 }
 
 class _Antialias implements Antialias {
   int _val;
-  
+
   _Antialias(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(Antialias other) => value == other.value;  
+  operator==(Object other) => other is Antialias &&  value == other.value;
 }
 

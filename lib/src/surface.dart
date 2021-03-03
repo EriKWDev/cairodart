@@ -113,7 +113,7 @@ abstract class Surface implements RefObject {
   ///
   Device get device;
 
-  operator==(Surface other);
+  operator==(Object other) => other is Surface;
 }
 
 ///
@@ -379,7 +379,7 @@ abstract class _Surface extends NativeFieldWrapperClass2 implements Surface {
 
   CairoStatus get status native 'surface_status';
 
-  operator==(Surface other) native 'surfaces_equals';
+  operator==(Object other) native 'surfaces_equals';
 }
 
 abstract class ImageSurface implements Surface {

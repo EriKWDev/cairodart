@@ -30,7 +30,8 @@ main() {
   Surface surface = new ImageSurface(Format.ARGB32, 350, 350);
   Context ctx = new Context(surface);
 
-  ctx..translate(10, 10)
+  ctx
+     ..translate(10, 10)
      ..setSourceRgb(1, 1, 0)
      ..rectangleByCoords(0, 0, 50, 50)
      ..fill();

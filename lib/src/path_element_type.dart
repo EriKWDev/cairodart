@@ -37,5 +37,5 @@ class _PathElementType implements PathElementType {
   _PathElementType(this.value);
 
   @override
-  operator==(PathElementType other) => this.value == other.value;
+  operator==(Object other) => other is PathElementType && this.value == other.value;
 }

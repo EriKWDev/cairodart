@@ -30,19 +30,19 @@ abstract class LineJoin {
 
   /// Use a cut-off join, the join is cut off at half the line width from the joint point
   static final LineJoin Bevel = new _LineJoin(2);
-  
+
   int get value;
 }
 
 class _LineJoin implements LineJoin {
-  
+
   int _val;
-  
+
   _LineJoin(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(LineJoin other) => other.value == value;
+  operator==(Object other) => other is LineJoin &&  other.value == value;
 }
 

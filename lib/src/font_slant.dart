@@ -43,5 +43,5 @@ class _FontSlant implements FontSlant {
   int get value => _val;
 
   @override
-  operator==(FontSlant other) => other.value == value;
+  operator==(Object other) => other is FontSlant &&  other.value == value;
 }

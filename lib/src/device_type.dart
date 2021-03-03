@@ -64,5 +64,5 @@ class _DeviceType implements DeviceType {
   _DeviceType(this._val);
 
   @override
-  operator==(DeviceType other) => other.value == value;
+  operator==(Object other) => other is DeviceType &&  other.value == value;
 }

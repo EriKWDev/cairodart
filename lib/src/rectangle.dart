@@ -39,22 +39,22 @@ abstract class Rectangle {
   /// width and height.
   ///
   factory Rectangle(num x, num y, num width, num height) => new _Rectangle(x, y, width, height);
-  
+
 }
 
 
 class _Rectangle implements Rectangle {
-  
+
   num x;
   num y;
   num width;
   num height;
-  
+
   _Rectangle(this.x, this.y, this.width, this.height);
-  
+
   @override
-  operator==(Rectangle other) => x == other.x && y == other.y && width == other.width && height == other.height;
-  
+  operator==(Object other) => other is Rectangle && x == other.x && y == other.y && width == other.width && height == other.height;
+
   @override
   String toString() => '[x: $x, y: $y, width: $width, height: $height]';
 }

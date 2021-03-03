@@ -109,18 +109,18 @@ abstract class SurfaceType {
 
   /// This surface is of type Cogl
   static final SurfaceType COGL = new _SurfaceType(24);
- 
+
   int get value;
 }
 
 class _SurfaceType extends NativeFieldWrapperClass2 implements SurfaceType {
-  
+
   int _val;
-  
+
   _SurfaceType(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(SurfaceType other) => value == other.value;
+  operator==(Object other) => other is SurfaceType && value == other.value;
 }

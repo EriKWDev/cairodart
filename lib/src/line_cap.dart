@@ -30,17 +30,17 @@ abstract class LineCap {
 
   /// Use squared ending, the center of the square is the end point
   static final LineCap Square = new _LineCap(2);
-  
+
   int get value;
 }
 
 class _LineCap implements LineCap {
   int _val;
-  
+
   _LineCap(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(LineCap other) => other.value == value; 
+  operator==(Object other) => other is LineCap &&  other.value == value;
 }

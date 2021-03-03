@@ -41,7 +41,7 @@ class _PostScriptLevel implements PostScriptLevel {
   _PostScriptLevel(this._val);
 
   @override
-  operator==(PostScriptLevel other) => other.value == value;
+  operator==(Object other) => other is PostScriptLevel && other.value == value;
 
   @override
   String toString() => _levelToString(value);

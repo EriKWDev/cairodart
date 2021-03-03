@@ -38,7 +38,7 @@ class _SvgVersion implements SvgVersion {
   _SvgVersion(this._val);
 
   @override
-  operator==(SvgVersion other) => other.value == value;
+  operator==(Object other) => other is SvgVersion && other.value == value;
 
   @override
   String toString() => _versionToString(value);

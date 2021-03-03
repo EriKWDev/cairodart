@@ -52,18 +52,18 @@ abstract class FillRule {
   /// If the total number of intersections is odd, the point will be filled.
   ///
   static final FillRule EvenOdd = new _FillRule(1);
-  
+
   int get value;
 }
 
 class _FillRule implements FillRule {
   int _val;
-  
+
   _FillRule(this._val);
-  
-  
+
+
   int get value => _val;
-  
+
   @override
-  operator==(FillRule other) => other.value == value;
+  operator==(Object other) => other is FillRule &&  other.value == value;
 }

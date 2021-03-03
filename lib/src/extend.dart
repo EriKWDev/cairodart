@@ -39,17 +39,17 @@ abstract class Extend {
 
   /// Pixels outside of the pattern copy the closest pixel from the source
   static Extend Pad = new _Extend(3);
-  
+
   int get value;
 }
 
 class _Extend implements Extend {
   int _val;
-  
+
   _Extend(this._val);
-  
+
   int get value => _val;
-  
-  @override 
-  operator==(Extend other) => value == other.value;
+
+  @override
+  operator==(Object other) => other is Extend &&  value == other.value;
 }

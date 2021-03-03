@@ -38,19 +38,19 @@ abstract class FontType {
 
   /// The font was create using cairo's user font api
   static final FontType User = new _FontType(4);
-  
+
   int get value;
 }
 
 class _FontType implements FontType {
 
   int _val;
-  
+
   int get value => _val;
-  
+
   _FontType(this._val);
-  
+
   @override
-  operator==(FontType other) => other.value == value;
+  operator==(Object other) => other is FontType &&  other.value == value;
 }
 

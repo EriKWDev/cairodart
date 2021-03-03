@@ -32,14 +32,14 @@ abstract class Resolution {
 
   /// Gets Y resolution
   num get yResolution;
-  
+
 }
 
 class _Resolution implements Resolution {
 
   num _xResolution;
   num _yResolution;
-  
+
   _Resolution(this._xResolution, this._yResolution);
 
   num get xResolution => _xResolution;

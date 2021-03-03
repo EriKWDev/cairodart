@@ -53,6 +53,6 @@ class _TextCluster implements TextCluster {
   _TextCluster(this._numBytes, this._numGlyphs);
 
   @override
-  operator==(TextCluster other) => other.numBytes == numBytes && other.numGlyphs == numGlyphs;
+  operator==(Object other) => other is TextCluster && other.numBytes == numBytes && other.numGlyphs == numGlyphs;
 
 }

@@ -34,18 +34,18 @@ abstract class HintMetrics {
 
   /// Hint font metrics
   static final HintMetrics On = new _HintMetrics(2);
-  
+
   int get value;
 }
 
 class _HintMetrics implements HintMetrics {
   int _val;
-  
+
   _HintMetrics(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(HintMetrics other) => other.value == value;
-  
+  operator==(Object other) => other is HintMetrics &&  other.value == value;
+
 }

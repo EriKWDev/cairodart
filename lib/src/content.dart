@@ -31,18 +31,18 @@ abstract class Content {
 
   /// The surface will hold color and alpha content
   static Content ColorAndAlpha = new _Content(0x3000);
-  
+
   int get value;
 }
 
 class _Content extends Content {
-  
+
   final int _value;
-  
+
   _Content(this._value);
-  
+
   int get value => _value;
- 
+
   @override
-  operator==(Content other) => value == other.value;
+  operator==(Object other) => other is Content &&  value == other.value;
 }

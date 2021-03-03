@@ -30,10 +30,10 @@ runRectangleTests() {
       Rectangle rect1 = new Rectangle(10, 15, 100, 150);
       Rectangle rect2 = new Rectangle(10, 15, 100, 150);
       expect(rect1, equals(rect2));
-      
+
       rect2.x = 20;
-      
+
       expect(rect1 != rect2, equals(true));
     });
-  });  
+  });
 }

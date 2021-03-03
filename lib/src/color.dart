@@ -54,13 +54,13 @@ class _Color implements Color {
   double green = 0.0;
   double blue = 0.0;
   double alpha = 1.0;
-    
-  _Color.rgb(this.red, this.green, this.blue);  
+
+  _Color.rgb(this.red, this.green, this.blue);
   _Color.rgba(this.red, this.green, this.blue, this.alpha);
 
 
   @override
-  operator==(Color other) => other.red == red && other.green == green && other.blue == blue && other.alpha == alpha;
+  operator==(Object other) => other is Color &&  other.red == red && other.green == green && other.blue == blue && other.alpha == alpha;
 
   @override
   String toString() => 'Color($red,$green,$blue,$alpha)';

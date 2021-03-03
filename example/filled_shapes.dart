@@ -37,7 +37,7 @@ main() {
   // Red circle
   ctx..translate(150, 100)
      ..setSourceRgb(0, 0, 0)
-     ..arc(0, 0, 50, 0, 2 * PI)
+     ..arc(0, 0, 50, 0, 2 * pi)
      ..strokePreserve()
      ..setSourceRgba(1, 0, 0, 0.7)
      ..fill();
@@ -45,7 +45,7 @@ main() {
   // Green circle
   ctx..translate(50, 0)
     ..setSourceRgb(0, 0, 0)
-    ..arc(0, 0, 50, 0, 2 * PI)
+    ..arc(0, 0, 50, 0, 2 * pi)
     ..strokePreserve()
     ..setSourceRgba(0, 1, 0, 0.7)
     ..fill();
@@ -53,7 +53,7 @@ main() {
   // Blue circle
   ctx..translate(-25, 50)
     ..setSourceRgb(0, 0, 0)
-    ..arc(0, 0, 50, 0, 2 * PI)
+    ..arc(0, 0, 50, 0, 2 * pi)
     ..strokePreserve()
     ..setSourceRgba(0, 0, 1, 0.7)
     ..fill();

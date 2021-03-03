@@ -56,13 +56,15 @@ void generateCaptcha(Context ctx, String text) {
 
 
   ctx.setSourceRgb(1, 0, 0);
-  ctx..moveTo(20, 50)
+  ctx
+     ..moveTo(20, 50)
      ..showText(firstPart);
 
-  matrix.rotate(-PI / 4);
+  matrix.rotate(-pi / 4);
   ctx.transform(matrix);
 
-  ctx..moveTo(40, 80)
+  ctx
+     ..moveTo(40, 80)
      ..showText(secondPart);
 
 }

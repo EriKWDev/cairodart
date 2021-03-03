@@ -49,17 +49,17 @@ abstract class PatternType {
 
   /// The pattern is a user pattern providing raster data
   static final PatternType RasterSource = new _PatternType(5);
-  
+
   int get value;
 }
 
 class _PatternType implements PatternType {
   int _val;
-  
+
   _PatternType(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(PatternType other) => value == other.value;
+  operator==(Object other) => other is PatternType && value == other.value;
 }

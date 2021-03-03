@@ -35,6 +35,6 @@ runPointTests() {
       var p = new Point();
       expect(p.y, equals(0));
     });
-    
+
   });
 }

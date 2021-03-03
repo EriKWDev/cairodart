@@ -62,6 +62,6 @@ class _Glyph implements Glyph {
   double get y => _y;
 
   @override
-  operator==(Glyph other) => index == other.index && x == other.x && y == other.y;
+  operator==(Object other) => other is Glyph &&  index == other.index && x == other.x && y == other.y;
 
 }

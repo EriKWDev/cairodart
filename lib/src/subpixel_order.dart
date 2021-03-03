@@ -37,19 +37,19 @@ abstract class SubpixelOrder {
 
   /// Subpixel elements are arranged vertically with blue at the top
   static final SubpixelOrder Vbgr = new _SubpixelOrder(4);
-  
+
   int get value;
 }
 
 class _SubpixelOrder implements SubpixelOrder {
-  
+
   int _val;
-  
+
   _SubpixelOrder(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(SubpixelOrder other) => other.value == value;
-  
+  operator==(Object other) => other is SubpixelOrder && other.value == value;
+
 }

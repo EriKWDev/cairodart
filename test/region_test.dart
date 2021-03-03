@@ -74,7 +74,7 @@ runRegionTests() {
       Region region = new Region.fromRectangles([ext1, ext2]);
       Rectangle res1 = region.rectangleAt(0);
       Rectangle res2 = region.rectangleAt(1);
-      
+
       expect(res1, equals(ext1));
       expect(res2, equals(ext2));
     });
@@ -136,7 +136,7 @@ runRegionTests() {
       Rectangle rect2 = new Rectangle(15, 15, 150, 150);
       Region region1 = new Region.fromRectangle(rect1);
       Region region2 = new Region.fromRectangle(rect2);
-      expect(region1 == region2, isFalse);      
+      expect(region1 == region2, isFalse);
     });
     test('should be successfully translated using translate() method', () {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
@@ -150,7 +150,7 @@ runRegionTests() {
       Region region = new Region.fromRectangle(rect);
       region.translateToDistance(new Distance.from(5.0, 5.0));
       Rectangle resultRect = region.rectangleAt(0);
-      expect(resultRect, equals(new Rectangle(5, 5, 10, 10)));      
+      expect(resultRect, equals(new Rectangle(5, 5, 10, 10)));
     });
     test('should successfully intersect with other region', () {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
@@ -165,7 +165,7 @@ runRegionTests() {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
       Region region = new Region.fromRectangle(rect);
       Rectangle otherRect = new Rectangle(5, 5, 10, 10);
-      
+
       region.intersectRectangle(otherRect);
       Rectangle result = region.rectangleAt(0);
       expect(result, equals(new Rectangle(5, 5, 5, 5)));
@@ -182,7 +182,7 @@ runRegionTests() {
       Region region = new Region.fromRectangle(rect1);
       Rectangle rect2 = new Rectangle(5, 0, 10, 10);
       Region other = new Region.fromRectangle(rect2);
-      
+
       region.subtract(other);
       Rectangle subtracted = region.rectangleAt(0);
       expect(subtracted, equals(new Rectangle(0, 0, 5, 10)));
@@ -191,7 +191,7 @@ runRegionTests() {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
       Region region = new Region.fromRectangle(rect);
       Rectangle other = new Rectangle(5, 0, 10, 10);
-      
+
       region.subtractRectangle(other);
       Rectangle subtracted = region.rectangleAt(0);
       expect(subtracted, equals(new Rectangle(0, 0, 5, 10)));
@@ -199,7 +199,7 @@ runRegionTests() {
     test('should successfully subtract a rectangle by coords', () {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
       Region region = new Region.fromRectangle(rect);
-      
+
       region.subtractRectangleWithCoords(5, 0, 10, 10);
       Rectangle subtracted = region.rectangleAt(0);
       expect(subtracted, equals(new Rectangle(0, 0, 5, 10)));
@@ -209,7 +209,7 @@ runRegionTests() {
       Region region = new Region.fromRectangle(rect);
       Rectangle otherRect = new Rectangle(10, 0, 10, 10);
       Region other = new Region.fromRectangle(otherRect);
-      
+
       region.union(other);
       Rectangle union = region.rectangleAt(0);
       expect(union, equals(new Rectangle(0, 0, 20, 10)));
@@ -218,7 +218,7 @@ runRegionTests() {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
       Region region = new Region.fromRectangle(rect);
       Rectangle other = new Rectangle(10, 0, 10, 10);
-      
+
       region.unionRectangle(other);
       Rectangle union = region.rectangleAt(0);
       expect(union, equals(new Rectangle(0, 0, 20, 10)));
@@ -236,7 +236,7 @@ runRegionTests() {
       Region region = new Region.fromRectangle(rect);
       Rectangle otherRect = new Rectangle(5, 0, 10, 10);
       Region other = new Region.fromRectangle(otherRect);
-      
+
       region.xor(other);
       Rectangle xor = region.rectangleAt(0);
       expect(xor, equals(new Rectangle(0, 0, 5, 10)));
@@ -245,7 +245,7 @@ runRegionTests() {
       Rectangle rect = new Rectangle(0, 0, 10, 10);
       Region region = new Region.fromRectangle(rect);
       Rectangle other = new Rectangle(5, 0, 10, 10);
-      
+
       region.xorRectangle(other);
       Rectangle xor = region.rectangleAt(0);
       expect(xor, equals(new Rectangle(0, 0, 5, 10)));
@@ -258,6 +258,6 @@ runRegionTests() {
       Rectangle xor = region.rectangleAt(0);
       expect(xor, equals(new Rectangle(0, 0, 5, 10)));
     });
-    
+
  });
 }

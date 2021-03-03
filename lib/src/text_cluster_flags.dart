@@ -38,6 +38,6 @@ class _TextClusterFlags implements TextClusterFlags {
   int get value => _val;
 
   @override
-  operator==(TextClusterFlags other) => other.value == value;
+  operator==(Object other) => other is TextClusterFlags && other.value == value;
 }
 

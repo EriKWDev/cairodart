@@ -27,11 +27,11 @@ runContextTests() {
       Context ctx = new Context(new ImageSurface(Format.ARGB32, 640, 480));
       Pattern p = new SurfacePattern(new ImageSurface(Format.ARGB32, 500, 500));
       Pattern other = new MeshPattern();
-      
+
       ctx.source = p;
-      
+
       expect(ctx.source, equals(p));
-      expect(ctx.source, isNot(equals(other)));      
+      expect(ctx.source, isNot(equals(other)));
     });
     test('should successfully perform push/pop group', () {
       Context ctx = new Context(new ImageSurface(Format.ARGB32, 640, 480));
@@ -79,8 +79,8 @@ runContextTests() {
       var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
 
       ctx.lineWidth = 0.5;
-      
-      
+
+
       ctx.moveTo(1.0, 0.0);
       ctx.lineTo(50.0, 0.0);
       ctx.lineTo(50.0, 50.0);
@@ -94,7 +94,7 @@ runContextTests() {
       expect(actual.y, closeTo(expectedRect.y, 0.01));
       expect(actual.width, closeTo(expectedRect.width, 0.01));
       expect(actual.height, closeTo(expectedRect.height, 0.01));
-    });    
+    });
     test('should return correct target', () {
       var surface = new ImageSurface(Format.ARGB32, 640, 480);
       Context ctx = new Context(surface);
@@ -478,66 +478,67 @@ runContextTests() {
       ctx.fillPreserve();
       expect(ctx.currentPoint, equals(new Point.from(10.0, 10.0)));
     });
-    test('should successully determine fill extents', () {
-      var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
 
-      ctx.moveTo(0.0, 0.0);
-      ctx.lineTo(50.0, 60.0);
-      ctx.lineTo(0.0, 50.0);
-      ctx.lineTo(0.0, 0.0);
-      ctx.fillPreserve();
+    // test('should successully determine fill extents', () {
+    //   var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
 
-      expect(ctx.fillExtents, new Rectangle(0, 0, 50, 60));
-    });
-    test('should correctly determine if point is in fill', () {
-      var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
+    //   ctx.moveTo(0.0, 0.0);
+    //   ctx.lineTo(50.0, 60.0);
+    //   ctx.lineTo(0.0, 50.0);
+    //   ctx.lineTo(0.0, 0.0);
+    //   ctx.fillPreserve();
 
-      ctx.moveTo(0.0, 0.0);
-      ctx.lineTo(100.0, 100.0);
-      ctx.lineTo(0.0, 100.0);
-      ctx.lineTo(0.0, 0.0);
-      ctx.fillPreserve();
+    //   expect(ctx.fillExtents, new Rectangle(0, 0, 50, 60));
+    // });
+    // test('should correctly determine if point is in fill', () {
+    //   var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
 
-      expect(ctx.inFill(49, 50), isTrue);
-      expect(ctx.inFill(50, 50), isTrue);
-      expect(ctx.inFill(51, 50), isFalse);
-    });
-    test('should correctly determine if point is in fill when Point class is used', () {
-      var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
+    //   ctx.moveTo(0.0, 0.0);
+    //   ctx.lineTo(100.0, 100.0);
+    //   ctx.lineTo(0.0, 100.0);
+    //   ctx.lineTo(0.0, 0.0);
+    //   ctx.fillPreserve();
 
-      ctx.moveTo(0.0, 0.0);
-      ctx.lineTo(100.0, 100.0);
-      ctx.lineTo(0.0, 100.0);
-      ctx.lineTo(0.0, 0.0);
-      ctx.fillPreserve();
+    //   expect(ctx.inFill(49, 50), isTrue);
+    //   expect(ctx.inFill(50, 50), isTrue);
+    //   expect(ctx.inFill(51, 50), isFalse);
+    // });
+    // test('should correctly determine if point is in fill when Point class is used', () {
+    //   var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
 
-      expect(ctx.pointInFill(new Point.from(49, 50)), isTrue);
-      expect(ctx.pointInFill(new Point.from(50, 50)), isTrue);
-      expect(ctx.pointInFill(new Point.from(51, 50)), isFalse);
-    });
+    //   ctx.moveTo(0.0, 0.0);
+    //   ctx.lineTo(100.0, 100.0);
+    //   ctx.lineTo(0.0, 100.0);
+    //   ctx.lineTo(0.0, 0.0);
+    //   ctx.fillPreserve();
+
+    //   expect(ctx.pointInFill(new Point.from(49, 50)), isTrue);
+    //   expect(ctx.pointInFill(new Point.from(50, 50)), isTrue);
+    //   expect(ctx.pointInFill(new Point.from(51, 50)), isFalse);
+    // });
     test('should correctly return the current clip region as a list of rectangles in user coordinates', () {
       var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
-      
+
       ctx.moveTo(0.0, 0.0);
       ctx.rectangle(new Rectangle(0, 0, 20, 20));
       ctx.rectangle(new Rectangle(10, 10, 20, 20));
       ctx.clip();
-      
+
       RectangleList rectList = ctx.copyClipRectangleList();
       expect(rectList.status, equals(CairoStatus.Success));
       expect(rectList.rectangles.length, equals(3));
-      
+
       expect(rectList.rectangles[0], equals(new Rectangle(0, 0, 20, 10)));
       expect(rectList.rectangles[1], equals(new Rectangle(0, 10, 30, 10)));
       expect(rectList.rectangles[2], equals(new Rectangle(10, 20, 20, 10)));
-      
+
       rectList.destroy();
     });
     test('should successfully get/set dash', () {
       var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
       var dash = new Dash([1.1, 1.5], 0.2);
       ctx.dash = dash;
-      
+
       int count = ctx.dashCount;
       expect(count, equals(2));
       expect(ctx.dash, equals(dash));
@@ -545,14 +546,14 @@ runContextTests() {
     test('should correctly set source surface', () {
       var ctx = new Context(new ImageSurface(Format.ARGB32, 100, 100));
       ctx.setSourceSurface(new ImageSurface(Format.ARGB32, 50, 50), 50.0, 50.0);
-      
+
       Pattern p = ctx.source;
       expect(p, isNotNull);
     });
     test('should correctly get initial surface as group target', () {
       var original = new ImageSurface(Format.ARGB32, 100, 100);
       var ctx = new Context(original);
-      
+
       expect(ctx.groupTarget, equals(original));
     });
     test('should correctly get/set font matrix', () {

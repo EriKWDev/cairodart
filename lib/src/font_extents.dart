@@ -73,15 +73,15 @@ class _FontExtents implements FontExtents {
   double height;
   double maxXAdvance;
   double maxYAdvance;
-  
+
   _FontExtents(this.ascent, this.descent, this.height, this.maxXAdvance, this.maxYAdvance);
-  
+
   @override
-  operator==(FontExtents other) =>
+  operator==(Object other) => other is FontExtents &&
       other.ascent == ascent &&
       other.descent == descent &&
       other.height == height &&
       other.maxXAdvance == maxXAdvance &&
       other.maxYAdvance == maxYAdvance;
-    
+
 }

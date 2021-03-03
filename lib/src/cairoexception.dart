@@ -27,7 +27,7 @@ class CairoException implements Exception {
   CairoStatus status;
 
   CairoException(this.cause, this.status);
-  
+
   @override
   String toString() => 'Cause: $cause, Status: ${status.statusCode}';
 }
@@ -161,5 +161,5 @@ class CairoStatus {
   CairoStatus(this.statusCode);
 
   @override
-  operator==(CairoStatus other) => other.statusCode == this.statusCode;
+  operator==(Object other) => other is CairoStatus &&  other.statusCode == this.statusCode;
 }

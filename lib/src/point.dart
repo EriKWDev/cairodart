@@ -40,18 +40,18 @@ abstract class Point {
 }
 
 class _Point implements Point {
-  
+
   num _x;
   num _y;
-  
+
   _Point(this._x, this._y);
-  
+
   num get x => _x;
   num get y => _y;
-  
+
   @override
-  operator==(Point other) => x == other.x && y == other.y;
-  
+  operator==(Object other) => other is Point && x == other.x && y == other.y;
+
   @override
   String toString() => "($x, $y)";
 }

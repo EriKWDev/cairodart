@@ -106,7 +106,7 @@ abstract class ScaledFont implements RefObject {
 }
 
 class _ScaledFont extends NativeFieldWrapperClass2 implements ScaledFont {
-  
+
   _ScaledFont(FontFace fontFace, Matrix fontMatrix, Matrix ctm, FontOptions options) {
     _createScaledFont(fontFace, fontMatrix, ctm, options);
   }
@@ -114,7 +114,7 @@ class _ScaledFont extends NativeFieldWrapperClass2 implements ScaledFont {
   _ScaledFont._internal(){}
 
   void _createScaledFont(FontFace fontFace, Matrix fontMatrix, Matrix ctm, FontOptions options) native 'scaled_font_create';
-  
+
   FontExtents get fontExtents native 'scaled_font_extents';
   TextExtents get textExtents native 'scaled_font_text_extents';
   TextExtents get glyphExtents native 'scaled_font_glyph_extents';

@@ -30,19 +30,19 @@ abstract class ColorStop {
 
   /// Creates a [ColorStop] instance with specified color and offset
   factory ColorStop(Color color, num offset) => new _ColorStop(color, offset.toDouble());
-  
+
 }
 
 class _ColorStop implements ColorStop {
-  
+
   Color _color;
   double _offset;
-    
-  
+
+
   Color get color => _color;
   double get offset => _offset;
-    
-  
+
+
   _ColorStop(this._color, this._offset);
-  
+
 }

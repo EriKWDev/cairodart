@@ -55,7 +55,7 @@ abstract class TextExtents {
   /// Distance to advance in the Y direction after drawing these glyphs.
   /// Will typically be zero except for vertical text layout as found in East-Asian languages.
   ///
-  double yAdvance;  
+  double yAdvance;
 }
 
 class _TextExtents implements TextExtents {
@@ -64,12 +64,15 @@ class _TextExtents implements TextExtents {
   double width;
   double height;
   double xAdvance;
-  double yAdvance;    
-  
+  double yAdvance;
+
   _TextExtents(this.xBearing, this.yBearing, this.width, this.height, this.xAdvance, this.yAdvance);
-  
+
   @override
-  operator==(TextExtents other) =>
+  int get hashCode => super.hashCode;
+
+  @override
+  operator==(Object other) => other is TextExtents &&
       other.xBearing == xBearing &&
       other.yBearing == yBearing &&
       other.width == width &&

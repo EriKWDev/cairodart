@@ -39,18 +39,18 @@ abstract class Filter {
 
   /// This filter value is currently unimplemented, and should not be used in current code
   static final Filter Gaussian = new _Filter(5);
-  
+
   int get value;
 }
 
 class _Filter implements Filter {
-  
+
   int _val;
-  
+
   _Filter(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(Filter other) => value == other.value; 
+  operator==(Object other) => other is Filter &&  value == other.value;
 }

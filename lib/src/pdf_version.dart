@@ -39,7 +39,7 @@ class _PdfVersion implements PdfVersion {
   _PdfVersion(this._val);
 
   @override
-  operator==(PdfVersion other) => other.value == value;
+  operator==(Object other) => other is PdfVersion && other.value == value;
 
   @override
   String toString() => _versionToString(this.value);

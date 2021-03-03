@@ -76,13 +76,13 @@ abstract class Format {
 
 class _Format extends NativeFieldWrapperClass2 implements Format {
   int _val;
-  
+
   _Format(this._val);
-  
+
   _createFormat(int value) native 'create_cairo_format';
-  
-  int strideForWidth(int width) => _strideForWidth(value, width); 
+
+  int strideForWidth(int width) => _strideForWidth(value, width);
   int _strideForWidth(int value, int width) native 'format_stride_for_width';
-  
+
   int get value => _val;
 }

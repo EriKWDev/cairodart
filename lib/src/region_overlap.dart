@@ -30,18 +30,18 @@ abstract class RegionOverlap {
 
   /// The contents are partially inside and partially outside the region
   static final RegionOverlap OverlapPart = new _RegionOverlap(2);
-  
+
   int get value;
 }
 
 class _RegionOverlap implements RegionOverlap {
-  
+
   int _val;
-  
+
   int get value => _val;
-  
+
   _RegionOverlap(this._val);
-  
+
   @override
-  operator==(RegionOverlap other) => other.value == value;
+  operator==(Object other) => other is RegionOverlap && other.value == value;
 }

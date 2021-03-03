@@ -26,27 +26,27 @@ runPatternTests() {
     test('should correctly get/set extend', () {
       Pattern pattern = new LinearGradient(10.0, 10.0, 20.0, 20.0);
       expect(pattern.extend, equals(Extend.Pad));
-      
+
       pattern.extend = Extend.Reflect;
-      
+
       expect(pattern.extend, equals(Extend.Reflect));
     });
     test('should have correct pattern type', () {
       Pattern pattern = new MeshPattern();
       expect(pattern.patternType, equals(PatternType.Mesh));
-      
+
       pattern = new SolidPattern.fromRgb(0.0, 0.0, 0.0);
       expect(pattern.patternType, equals(PatternType.Solid));
-      
+
       pattern = new SolidPattern.fromRgba(0.0, 0.0, 0.0, 0.0);
       expect(pattern.patternType, equals(PatternType.Solid));
-      
+
       pattern = new LinearGradient(0.0, 0.0, 10.0, 10.0);
       expect(pattern.patternType, equals(PatternType.Linear));
-      
+
       pattern = new RadialGradient(0.0, 0.0, 5.0, 10.0, 10.0, 10.0);
       expect(pattern.patternType, equals(PatternType.Radial));
-      
+
       Surface surface = new ImageSurface(Format.ARGB32, 10, 10);
       pattern = new SurfacePattern(surface);
       expect(pattern.patternType, equals(PatternType.Surface));
@@ -63,10 +63,10 @@ runPatternTests() {
       pattern.beginPatch();
       pattern.setControlPoint(0, new Point.from(20.0, 10.0));
       Point p = pattern.getControlPoint(0, 0);
-      
+
       expect(0.0, equals(p.x));
       expect(0.0, equals(p.y));
-    });    
+    });
     test('get corner color', () {
       MeshPattern pattern = new MeshPattern();
       pattern.beginPatch();
@@ -77,11 +77,11 @@ runPatternTests() {
       MeshPattern pattern = new MeshPattern();
       pattern.beginPatch();
       int count = pattern.patchCount;
-      
-      expect(0, equals(count));      
+
+      expect(0, equals(count));
     });
 
-    
+
   });
   group('Solid pattern', () {
     test('should correctly return pattern color for solid pattern', () {

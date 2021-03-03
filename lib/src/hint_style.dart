@@ -44,19 +44,19 @@ abstract class HintStyle {
 
   /// Hint outlines to maximize contrast
   static final HintStyle Full = new _HintStyle(4);
-  
+
   int get value;
 }
 
 class _HintStyle implements HintStyle {
-  
+
   int _val;
-  
+
   _HintStyle(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(HintStyle other) => other.value == value;
-  
+  operator==(Object other) => other is HintStyle &&  other.value == value;
+
 }

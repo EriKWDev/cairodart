@@ -132,18 +132,18 @@ abstract class Operator {
   /// This produces an inverse effect to [Operator.HSLColor].
   ///
   static final Operator HSLLuminosity = new _Operator(29);
-  
-  
+
+
   int get value;
 }
 
 class _Operator implements Operator {
   int _val;
-  
+
   _Operator(this._val);
-  
+
   int get value => _val;
-  
+
   @override
-  operator==(Operator other) => other.value == value;
+  operator==(Object other) => other is Operator &&  other.value == value;
 }

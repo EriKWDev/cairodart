@@ -40,5 +40,5 @@ class _FontWeight implements FontWeight {
   int get value => _val;
 
   @override
-  operator==(FontWeight other) => other.value == value;
+  operator==(Object other) => other is FontWeight &&  other.value == value;
 }
