@@ -266,7 +266,7 @@ abstract class PostScriptSurface implements Surface {
 ///
 /// Rendering SVG documents.
 ///
-abstract class SvgSurface {
+abstract class SvgSurface implements Surface {
 
   ///
   /// Creates a SVG surface of the specified size in points to be written to filename.
